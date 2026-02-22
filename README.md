@@ -63,42 +63,6 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 
+## Panduan Setup Aplikasi
 
-## Menjalankan Migration & Dummy Data Pengacara
-
-1. Install dependency terlebih dahulu:
-   ```bash
-   composer install
-   ```
-2. Salin environment file dan generate app key:
-   ```bash
-   cp .env.example .env
-   php artisan key:generate
-   ```
-3. Atur koneksi database di `.env` (DB_DATABASE, DB_USERNAME, DB_PASSWORD).
-4. Jalankan migration + seeder sekaligus (termasuk master jenis perkara):
-   ```bash
-   php artisan migrate --seed
-   ```
-5. Jika memakai upload file perkara, buat symbolic link storage:
-   ```bash
-   php artisan storage:link
-   ```
-
-Jika hanya ingin isi ulang dummy data pengacara tanpa reset semua tabel:
-```bash
-php artisan db:seed --class=DataPengacaraSeeder
-```
-
-Jika ingin reset database lalu isi ulang semua data seed:
-```bash
-php artisan migrate:fresh --seed
-```
-
-
-
-## CRUD Client & Perkara
-
-- Menu **Data Client** mendukung Create, Read, Update, Delete dengan field `jenis_client` (enumerasi: `Pribadi` atau `Instansi`).
-- Menu **Data Perkara** mendukung Create, Read, Update, Delete dan berelasi ke **Data Client** serta **Master Jenis Perkara**.
-- Field perkara mencakup: perkara/judul, jenis perkara, uraian, nomor internal, nomor external (pengadilan/kepolisian), upload file perkara, dan penanggung jawab perkara.
+Lihat panduan setup dan migrasi di `docs/setup-crud.md`.
