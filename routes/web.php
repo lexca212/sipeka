@@ -2,6 +2,8 @@
 
 use App\Http\Controllers\InfoPhpController;
 use App\Http\Controllers\ClientController;
+use App\Http\Controllers\PengacaraController;
+use App\Http\Controllers\PerkaraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,4 +25,6 @@ Route::get('/info', [InfoPhpController::class, 'index']);
 Route::get('/dashboard1', function () {
     return view('dashboard.index');
 })->name('dashboard');
-Route::get('/client',[ClientController::class, 'index'])->name('client');
+Route::resource('client', ClientController::class)->except(['show']);
+Route::get('/pengacara',[PengacaraController::class, 'index'])->name('pengacara');
+Route::resource('perkara', PerkaraController::class)->except(['show']);
