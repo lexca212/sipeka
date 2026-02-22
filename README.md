@@ -62,3 +62,32 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 ## License
 
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+
+
+## Menjalankan Migration & Dummy Data Pengacara
+
+1. Install dependency terlebih dahulu:
+   ```bash
+   composer install
+   ```
+2. Salin environment file dan generate app key:
+   ```bash
+   cp .env.example .env
+   php artisan key:generate
+   ```
+3. Atur koneksi database di `.env` (DB_DATABASE, DB_USERNAME, DB_PASSWORD).
+4. Jalankan migration + seeder sekaligus:
+   ```bash
+   php artisan migrate --seed
+   ```
+
+Jika hanya ingin isi ulang dummy data pengacara tanpa reset semua tabel:
+```bash
+php artisan db:seed --class=DataPengacaraSeeder
+```
+
+Jika ingin reset database lalu isi ulang semua data seed:
+```bash
+php artisan migrate:fresh --seed
+```
+
