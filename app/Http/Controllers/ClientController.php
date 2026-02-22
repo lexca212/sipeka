@@ -23,7 +23,7 @@ class ClientController extends Controller
     {
         $validated = $request->validate([
             'jenis_client' => 'required|in:Pribadi,Instansi',
-            'nik_client' => 'required|numeric',
+            'nik_client' => 'required|string|max:25',
             'nama_client' => 'required|string|max:255',
             'tgl_lahir_client' => 'nullable|date',
             'alamat_client' => 'required|string|max:255',
@@ -44,7 +44,7 @@ class ClientController extends Controller
     {
         $validated = $request->validate([
             'jenis_client' => 'required|in:Pribadi,Instansi',
-            'nik_client' => 'required|numeric',
+            'nik_client' => 'required|string|max:25',
             'nama_client' => 'required|string|max:255',
             'tgl_lahir_client' => 'nullable|date',
             'alamat_client' => 'required|string|max:255',
