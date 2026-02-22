@@ -20,7 +20,7 @@
                 </div>
                 <div class="form-group">
                     <label>NIK/Identitas</label>
-                    <input type="text" name="nik_client" class="form-control" value="{{ old('nik_client', $client->nik_client) }}" required>
+                    <input type="number" name="nik_client" class="form-control" value="{{ old('nik_client', $client->nik_client) }}" required>
                 </div>
                 <div class="form-group">
                     <label>Nama Client</label>
