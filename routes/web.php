@@ -23,4 +23,4 @@ Route::get('/info', [InfoPhpController::class, 'index']);
 Route::get('/dashboard1', function () {
     return view('dashboard.index');
 })->name('dashboard');
-Route::get('/client',[ClientController::class, 'index']);
+Route::get('/client',[ClientController::class, 'index'])->name('client');
