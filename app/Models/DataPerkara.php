@@ -35,4 +35,9 @@ class DataPerkara extends Model
     {
         return $this->belongsTo(JenisPerkara::class, 'jenis_perkara_id');
     }
+
+    public function laporanPerkara()
+    {
+        return $this->hasMany(LaporanPerkara::class,'id_perkara');
+    }
 }

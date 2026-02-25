@@ -34,6 +34,12 @@
                                 <p>Data Pengacara</p>
                             </a>
                         </li>
+                        <li class="nav-item">
+                            <a href="{{ route('jenisperkara') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Jenis Perkara</p>
+                            </a>
+                        </li>
                     </ul>
                 </li>
                 <li class="nav-item">
@@ -55,6 +61,12 @@
                             <a href="{{ route('perkara.index') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Perkara</p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('laporanperkara') }}" class="nav-link">
+                                <i class="far fa-circle nav-icon"></i>
+                                <p>Laporan Perkara</p>
                             </a>
                         </li>
                     </ul>

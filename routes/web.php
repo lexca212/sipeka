@@ -1,6 +1,8 @@
 <?php
 
 use App\Http\Controllers\InfoPhpController;
+use App\Http\Controllers\JenisPerkaraController;
+use App\Http\Controllers\LaporanPerkaraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -22,5 +24,14 @@ Route::get('/info', [InfoPhpController::class, 'index']);
 Route::get('/dashboard1', function () {
     return view('dashboard.index');
 })->name('dashboard');
+
+Route::get('/jenisperkara', [JenisPerkaraController::class, 'index'])->name('jenisperkara');
+Route::post('/jenisperkara', [JenisPerkaraController::class, 'store'])->name('jenisperkara.store');
+Route::get('/jenisperkara/create', [JenisPerkaraController::class, 'create'])->name('jenisperkara.create');
+
+Route::get('/laporanperkara', [LaporanPerkaraController::class, 'index'])->name('laporanperkara');
+Route::get('/laporanperkara/create', [LaporanPerkaraController::class, 'create'])->name('laporanperkara.create');
+
+
 
 require __DIR__ . '/modules.php';
