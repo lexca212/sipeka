@@ -7,12 +7,12 @@
         <div class="card-header">
             <h3 class="card-title">Laporan Perkara</h3>
         </div>
-        <form action="{{ route('jenisperkara.store') }}" method="POST">
+        <form action="{{ route('laporanperkara.store') }}" enctype="multipart/form-data" method="POST">
             @csrf
             <div class="card-body">
                 <div class="form-group">
                     <label>Tanggal Laporan</label>
-                    <input type="date" name="tanggal_laporan" class="form-control" required>
+                    <input type="date" name="tanggal_laporan" class="form-control" value="{{ date('Y-m-d') }}"  required>
                 </div>
                 <div class="form-group">
                     <label>Data Perkara</label>
@@ -32,10 +32,14 @@
                     <label>Keterangan</label>
                     <input type="text" name="keterangan" class="form-control" placeholder="Contoh : Kasus perdata" required>
                 </div>
+                <div class="form-group">
+                    <label>File</label>
+                    <input type="file" name="file" class="form-control-file" >
+                </div>
             </div>
             <div class="card-footer">
                 <button type="submit" class="btn btn-primary">Simpan</button>
-                <a href="{{ route('jenisperkara') }}" class="btn btn-secondary">Kembali</a>
+                <a href="{{ route('laporanperkara') }}" class="btn btn-secondary">Kembali</a>
             </div>
         </form>
     </div>

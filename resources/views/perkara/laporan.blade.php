@@ -19,6 +19,7 @@
                         <th>Data Perkara</th>
                         <th>Uraian Laporan</th>
                         <th>Keterangan</th>
+                        <th>File</th>
                         <th width="130">Action</th>
                     </tr>
                 </thead>
@@ -29,6 +30,9 @@
                             <td>{{ $item->perkara->no_perkara_internal ?: '-' }}</td>
                             <td>{{ $item->uraian_laporan}}</td>
                             <td>{{ $item->keterangan}}</td>
+                            <td>  <a href="{{ asset('storage/'.$item->file) }}" target="_blank">
+                                Lihat File
+                            </a></td>
                             <td>
                                 <a href="{{ route('perkara.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('perkara.destroy', $item->id) }}" method="POST" class="d-inline"

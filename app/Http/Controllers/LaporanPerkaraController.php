@@ -22,8 +22,24 @@ class LaporanPerkaraController extends Controller
         return view('perkara.createlaporan', compact('perkara'));
     }
 
-    public function store() 
+    public function store(Request $request) 
     {
-    
+        $validated = $request->validate([
+            'id_perkara'    => 'required',
+            'tanggal_laporan'   => 'required|date',
+            'uraian_laporan'    => 'min:3',
+            'keterangan'        =>  'min:3',
+            'file'              => 'nullable|file|mimes:pdf,jpg,jpeg,png,doc,docx|max:4096'
+        ]);
+        if ($request->hasFile('file')) {
+            $validated['file'] = $request->file('file')->store('laporan-perkara', 'public');
+        } else {
+            $validated['file'] = '-';
+        }
+
+
+        LaporanPerkara::create($validated);
+
+        return redirect()->route('perkara.index')->with('success', 'Laporan berhasil ditambahkan.');
     }
 }

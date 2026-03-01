@@ -60,6 +60,6 @@ class ClientController extends Controller
     {
         $client->delete();
 
-        return redirect()->route('client.index')->with('success', 'Data client berhasil dihapus.');
+        return redirect()->route('client.index')->with('danger', 'Data client berhasil dihapus.');
     }
 }

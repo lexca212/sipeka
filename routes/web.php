@@ -30,6 +30,7 @@ Route::post('/jenisperkara', [JenisPerkaraController::class, 'store'])->name('je
 Route::get('/jenisperkara/create', [JenisPerkaraController::class, 'create'])->name('jenisperkara.create');
 
 Route::get('/laporanperkara', [LaporanPerkaraController::class, 'index'])->name('laporanperkara');
+Route::post('/laporanperkara', [LaporanPerkaraController::class, 'store'])->name('laporanperkara.store');
 Route::get('/laporanperkara/create', [LaporanPerkaraController::class, 'create'])->name('laporanperkara.create');
 
 
