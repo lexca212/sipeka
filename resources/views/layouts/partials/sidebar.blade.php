@@ -21,13 +21,17 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
+                    
                     <ul class="nav nav-treeview">
+                        @if(auth()->user()->role === 'admin')
+  
                         <li class="nav-item">
-                            <a href="#" class="nav-link">
+                            <a href="{{ route('user.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
                                 <p>Data Users</p>
                             </a>
                         </li>
+                        @endif
                         <li class="nav-item">
                             <a href="{{ route('pengacara') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

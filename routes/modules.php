@@ -6,5 +6,7 @@ use App\Http\Controllers\PerkaraController;
 use Illuminate\Support\Facades\Route;
 
 Route::resource('client', ClientController::class)->except(['show']);
+Route::post('/pengacara', [PengacaraController::class, 'store'])->name('simpanpengacara');
+
 Route::get('/pengacara', [PengacaraController::class, 'index'])->name('pengacara');
 Route::resource('perkara', PerkaraController::class)->except(['show']);

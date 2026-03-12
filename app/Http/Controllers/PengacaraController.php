@@ -30,8 +30,8 @@ class PengacaraController extends Controller
             'spesialisasi_pengacara'    => 'required'
         ]);
 
-        DataPengacara::created($validated);
+        DataPengacara::create($validated);
 
-        return redirect()->route('perkara.index')->with('success', 'Data perkara berhasil ditambahkan.');
+        return redirect()->route('pengacara')->with('success', 'Data perkara berhasil ditambahkan.');
     }
 }

@@ -7,7 +7,7 @@
         <div class="card-header">
             <h3 class="card-title">Tambah Jenis Perkara</h3>
         </div>
-        <form action="{{ route('jenisperkara.store') }}" method="POST">
+        <form action="{{ route('simpanpengacara') }}" method="POST">
             @csrf
             <div class="card-body">
                 <div class="form-group">

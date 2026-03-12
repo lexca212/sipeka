@@ -17,4 +17,9 @@ class DataPengacara extends Model
         'no_hp_pengacara',
         'spesialisasi_pengacara',
     ];
+
+    public function user()
+    {
+        return $this->hasMany(User::class,'id');
+    }
 }
