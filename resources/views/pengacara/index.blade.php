@@ -8,7 +8,8 @@
             <h3 class="card-title">Data Pengacara</h3>
         </div>
         <div class="card-header">
-            <input type="button" class="btn btn-primary" value="Tambah">
+            <!-- <input type="button" class="btn btn-primary" value="Tambah"> -->
+            <a href="{{ route('tambahpengacara')}}" class="btn btn-sm btn-primary"> Tambah +</a>
         </div>
         <div class="card-body">
             <table id="example1" class="table table-bordered table-striped">

@@ -3,6 +3,7 @@
 use App\Http\Controllers\InfoPhpController;
 use App\Http\Controllers\JenisPerkaraController;
 use App\Http\Controllers\LaporanPerkaraController;
+use App\Http\Controllers\PengacaraController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -32,6 +33,8 @@ Route::get('/jenisperkara/create', [JenisPerkaraController::class, 'create'])->n
 Route::get('/laporanperkara', [LaporanPerkaraController::class, 'index'])->name('laporanperkara');
 Route::post('/laporanperkara', [LaporanPerkaraController::class, 'store'])->name('laporanperkara.store');
 Route::get('/laporanperkara/create', [LaporanPerkaraController::class, 'create'])->name('laporanperkara.create');
+
+Route::get('/pengacara/create', [PengacaraController::class, 'create'])->name('tambahpengacara');
 
 
 
