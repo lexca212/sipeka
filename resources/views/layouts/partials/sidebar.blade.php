@@ -21,10 +21,11 @@
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                    
+
                     <ul class="nav nav-treeview">
+                        @auth
                         @if(auth()->user()->role === 'admin')
-  
+
                         <li class="nav-item">
                             <a href="{{ route('user.index')}}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -32,6 +33,7 @@
                             </a>
                         </li>
                         @endif
+                        @endauth
                         <li class="nav-item">
                             <a href="{{ route('pengacara') }}" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>
@@ -50,7 +52,7 @@
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-circle"></i>
                         <p>
-                           DATA PERKARA
+                            DATA PERKARA
                             <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
