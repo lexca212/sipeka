@@ -1,6 +1,6 @@
 @extends('layouts.login')
 
-@section('title', 'Login')
+@section('title', 'Login LBH PWM JATENG')
 
 @section('content')
 
