@@ -30,7 +30,7 @@ class LaporanPerkaraController extends Controller
             'tanggal_laporan'   => 'required|date',
             'uraian_laporan'    => 'min:3',
             'keterangan'        =>  'min:3',
-            'file'              => 'nullable|file|mimes:pdf,jpg,jpeg,png,doc,docx|max:4096'
+            'file'              => 'nullable|file|mimes:pdf,jpg,jpeg,png,doc,docx|max:40960'
         ]);
         if ($request->hasFile('file')) {
             $validated['file'] = $request->file('file')->store('laporan-perkara', 'public');
