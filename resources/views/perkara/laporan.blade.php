@@ -34,7 +34,7 @@
                                 Lihat File
                             </a></td>
                             <td>
-                                <a href="{{ route('perkara.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
+                                <a href="{{ route('laporanperkara.edit', $item->id) }}" class="btn btn-warning btn-sm">Edit</a>
                                 <form action="{{ route('perkara.destroy', $item->id) }}" method="POST" class="d-inline"
                                     onsubmit="return confirm('Hapus data perkara ini?')">
                                     @csrf

@@ -3,30 +3,28 @@
 @section('title', 'Tambah Jenis Perkara')
 
 @section('content')
-    <div class="card card-primary">
+    <div class="card card-warning">
         <div class="card-header">
-            <h3 class="card-title">Laporan Perkara</h3>
+            <h3 class="card-title">Edit Laporan</h3>
         </div>
-        <form action="{{ route('laporanperkara.store') }}" enctype="multipart/form-data" method="POST">
+        <form action="{{ route('laporanperkara.update', $laporanperkara->id) }}" enctype="multipart/form-data" method="POST">
             @csrf
+            @method('PUT')
             <div class="card-body">
                 <div class="form-group">
                     <label>Tanggal Laporan</label>
-                    <input type="date" name="tanggal_laporan" class="form-control" value="{{ date('Y-m-d') }}"  required>
+                    <input type="date" name="tanggal_laporan" class="form-control" value="{{ $laporanperkara->tanggal_laporan}}" readonly required>
                 </div>
                 <div class="form-group">
                     <label>Data Perkara</label>
-                    <!-- <input type="text" name="nama_jenis_perkara" class="form-control" placeholder="contoh : Perdata" required> -->
-                     <select class="form-control" name="id_perkara" id="id_perkara">
-                        @foreach ($perkara as $p)
-                        <option value="{{$p->id}}">{{$p->no_perkara_internal}}</option>
-                        @endforeach
-                     </select>
+                    <input type="hidden" name="id_perkara" value="{{ $laporanperkara->id_perkara}}">
+                    <input type="text"  class="form-control" value="{{ $laporanperkara->perkara->no_perkara_internal}}" readonly>
+
                 </div>
                 <div class="form-group">
                     <label>Uraian Laporan</label>
                     <!-- <input type="text" name="uraian_laporan" class="form-control" placeholder="Contoh : Kasus perdata" required> -->
-                     <textarea class="form-control" name="uraian_laporan" id=""></textarea>
+                     <textarea class="form-control" name="uraian_laporan" id="">{{ $laporanperkara->uraian_laporan}}</textarea>
                 </div>
                 <div class="form-group">
                     <label>Keterangan</label>
@@ -35,6 +33,9 @@
                 <div class="form-group">
                     <label>File</label>
                     <input type="file" name="file" class="form-control-file" >
+                    @if (!empty($laporanperkara->file) && $laporanperkara->file !== '-')
+            <small class="text-muted d-block mt-2">File saat ini: {{ $laporanperkara->file }}</small>
+        @endif
                 </div>
             </div>
             <div class="card-footer">

@@ -5,6 +5,7 @@ use App\Http\Controllers\JenisPerkaraController;
 use App\Http\Controllers\LaporanPerkaraController;
 use App\Http\Controllers\PengacaraController;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\DataUserController;
 use Illuminate\Support\Facades\Route;
 
@@ -33,9 +34,11 @@ Route::get('/user/tambah', [DataUserController::class, 'create'])->name('user.cr
 Route::post('/user', [DataUserController::class, 'store'])->name('user.store');
 });
 Route::get('/info', [InfoPhpController::class, 'index']);
-Route::get('/dashboard1', function () {
-    return view('dashboard.index');
-})->name('dashboard');
+// Route::get('/dashboard1', function () {
+//     return view('dashboard.index');
+// })->name('dashboard');
+
+Route::get('/dashboard1', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::get('/jenisperkara', [JenisPerkaraController::class, 'index'])->name('jenisperkara');
 Route::post('/jenisperkara', [JenisPerkaraController::class, 'store'])->name('jenisperkara.store');
@@ -44,6 +47,8 @@ Route::get('/jenisperkara/create', [JenisPerkaraController::class, 'create'])->n
 Route::get('/laporanperkara', [LaporanPerkaraController::class, 'index'])->name('laporanperkara');
 Route::post('/laporanperkara', [LaporanPerkaraController::class, 'store'])->name('laporanperkara.store');
 Route::get('/laporanperkara/create', [LaporanPerkaraController::class, 'create'])->name('laporanperkara.create');
+Route::get('/laporan/{id}/edit', [LaporanPerkaraController::class, 'edit'])->name('laporanperkara.edit');
+Route::put('/laporan/{id}', [LaporanPerkaraController::class, 'update'])->name('laporanperkara.update');
 
 Route::get('/pengacara/create', [PengacaraController::class, 'create'])->name('tambahpengacara');
 

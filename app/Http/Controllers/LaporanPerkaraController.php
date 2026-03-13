@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\LaporanPerkara;
 use App\Models\DataPerkara;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class LaporanPerkaraController extends Controller
 {
@@ -40,6 +41,31 @@ class LaporanPerkaraController extends Controller
 
         LaporanPerkara::create($validated);
 
-        return redirect()->route('perkara.index')->with('success', 'Laporan berhasil ditambahkan.');
+        return redirect()->route('laporanperkara')->with('success', 'Laporan berhasil ditambahkan.');
+    }
+
+    public function edit(string $id)
+    {
+        $laporanperkara = LaporanPerkara::findOrfail($id);
+        return view('perkara.editlaporan', compact('laporanperkara'));
+    }
+
+    public function update(Request $request, $id)
+    {
+        $validated = $request->validate([
+            'uraian_laporan'    => 'required',
+            'keterangan'        => 'required',
+            'file'              =>  'nullable|file|mimes:pdf,jpg,jpeg,png,doc,docx|max:4096'
+        ]);
+
+        $laporanperkara = LaporanPerkara::findOrFail($id);
+        if ($request->hasFile('file')){
+             Storage::disk('public')->delete($laporanperkara->file);
+             $validated['file'] = $request->file('file')->store('laporan-perkara', 'public');
+        };
+
+        $laporanperkara->update($validated);
+        
+        return redirect()->route('laporanperkara')->with('succes', 'Data Berhasil Di update');
     }
 }
