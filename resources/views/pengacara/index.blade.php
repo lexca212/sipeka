@@ -57,7 +57,7 @@
     <script>
         $(function() {
             $("#example1").DataTable({
-                responsive: true,
+                responsive: false,
                 autoWidth: false,
             });
         });
