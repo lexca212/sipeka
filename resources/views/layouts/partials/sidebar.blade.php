@@ -3,7 +3,13 @@
     <a href="#" class="brand-link text-center">
         <span class="brand-text font-weight-light">Admin Panel</span>
     </a>
-
+    @auth
+    
+     <a href="{{ route('user.edit', auth()->user()->id) }}" class="brand-link text-center fas fa-user">
+       {{auth()->user()->name}}
+    </a>
+    
+    @endauth
     <div class="sidebar">
         <nav>
             <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview">

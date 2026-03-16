@@ -32,6 +32,8 @@ Route::middleware(['auth','role:admin'])->group(function () {
 Route::get('/user', [DataUserController::class, 'index'])->name('user.index');
 Route::get('/user/tambah', [DataUserController::class, 'create'])->name('user.create');
 Route::post('/user', [DataUserController::class, 'store'])->name('user.store');
+Route::get('/user/{id}/edit', [DataUserController::class, 'edit'])->name('user.edit');
+Route::post('/user/password', [DataUserController::class, 'update'])->name('user.update');
 });
 Route::get('/info', [InfoPhpController::class, 'index']);
 // Route::get('/dashboard1', function () {

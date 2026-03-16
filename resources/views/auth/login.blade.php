@@ -30,6 +30,15 @@
                 <b>Si</b>PEKA
             </a>
         </div>
+        @if(session('success'))
+        <div class="alert alert-success alert-dismissible fade show" role="alert">
+            <strong>Berhasil!</strong> {{ session('success') }}
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        @endif
+
 
         <div class="card shadow">
 
@@ -118,9 +127,11 @@
                 <hr>
 
                 <div class="card-footer">
-                    <center><strong><p> Lembaga Bantuan Hukum <br>Pimpinan Wilayah Muhammadiyah <br> Jawa Tengah
-                
-                </p> </center></strong>
+                    <center><strong>
+                            <p> Lembaga Bantuan Hukum <br>Pimpinan Wilayah Muhammadiyah <br> Jawa Tengah
+
+                            </p>
+                    </center></strong>
 
                 </div>
 
@@ -129,7 +140,7 @@
         </div>
 
     </div>
-   
+
 
 </div>
 
